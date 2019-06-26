@@ -10,6 +10,9 @@ public class Subscriptions {
     @Column(name = "id")
     private int id;
 
+    @Column(name = "subscription-type")
+    private String subscriptionType;
+
     public Subscriptions() {
     }
 }

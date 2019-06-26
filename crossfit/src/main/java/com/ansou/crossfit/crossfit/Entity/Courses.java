@@ -1,5 +1,7 @@
 package com.ansou.crossfit.crossfit.Entity;
 
+import com.ansou.crossfit.crossfit.Interface.Users;
+
 import javax.persistence.*;
 import java.util.List;
 

@@ -3,14 +3,13 @@ package com.ansou.crossfit.crossfit.Entity;
 import com.ansou.crossfit.crossfit.Interface.Users;
 
 import javax.persistence.*;
-import java.util.List;
 
 /*
-    Clients
+    Client
  */
 
 @Entity(name = "clients")
-public class Clients implements Users {
+public class Client implements Users {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -26,25 +25,24 @@ public class Clients implements Users {
     @Column(name = "lastname")
     private String lastname;
 
+    @Column(name = "password")
+    private String password;
+
     @Column(name = "email")
     private String email;
 
     @Column(name = "phonenumber")
     private String phonenumber;
 
-    @Column(name = "related_users")
-    private List<Users> relatedUsers;
-
-    public Clients() {
+    public Client() {
     }
 
-    public Clients(String username, String firstname, String lastname, String email, String phonenumber, List<Users> relatedUsers) {
+    public Client(String username, String firstname, String lastname, String email, String phonenumber) {
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.phonenumber = phonenumber;
-        this.relatedUsers = relatedUsers;
     }
 
     public int getId() {
@@ -95,24 +93,24 @@ public class Clients implements Users {
         this.phonenumber = phonenumber;
     }
 
-    public List<Users> getRelatedUsers() {
-        return relatedUsers;
+    public String getPassword() {
+        return password;
     }
 
-    public void setRelatedUsers(List<Users> relatedUsers) {
-        this.relatedUsers = relatedUsers;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public String toString() {
-        return "Clients{" +
+        return "Client{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
+                ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", phonenumber='" + phonenumber + '\'' +
-                ", relatedUsers=" + relatedUsers +
                 '}';
     }
 }

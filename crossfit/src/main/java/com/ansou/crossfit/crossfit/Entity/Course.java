@@ -33,8 +33,9 @@ public class Course implements Users {
     private Teacher teacher;
 
     //List of clients
-    //@Column(name = "list_client_id")
-    //private List<Client> listClients;
+    @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "list_client_id")
+    private List<Client> listClients;
 
     public Course() {
     }
@@ -86,7 +87,7 @@ public class Course implements Users {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
-    /*
+
     public List<Client> getListClients() {
         return listClients;
     }
@@ -94,7 +95,7 @@ public class Course implements Users {
     public void setListClients(List<Client> listClients) {
         this.listClients = listClients;
     }
-    */
+
     @Override
     public String toString() {
         return "Course{" +

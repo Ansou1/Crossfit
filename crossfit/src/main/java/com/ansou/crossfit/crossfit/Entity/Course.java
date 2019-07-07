@@ -27,12 +27,12 @@ public class Course implements Users {
     @Column(name = "workout")
     private String workout;
 
-    //Teacher
+    //Teacher on the course
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name="teacher_id")
     private Teacher teacher;
 
-    //List of clients
+    //List of clients in this course
     @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "list_client_id")
     private List<Client> listClients;
